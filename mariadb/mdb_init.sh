@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 service mariadb start
 
@@ -11,4 +11,4 @@ then
 fi
 
 service mariadb stop
-mysqld
+exec "$@"

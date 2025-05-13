@@ -1,7 +1,7 @@
-FROM debian:11.9
+FROM debian:bullseye
 
-RUN apt-get update
-RUN apt-get install -y mariadb-server
+RUN apt update
+RUN apt install -y mariadb-server
 
 COPY mdb.cnf /etc/mysql/mariadb.conf.d/
 COPY --chmod=777 ./mdb_init.sh .
@@ -13,4 +13,5 @@ RUN mkdir -p /var/run/mysqld && \
 EXPOSE 3306
 
 ENTRYPOINT ["./mdb_init.sh"]
+CMD ["mysqld"]
 
