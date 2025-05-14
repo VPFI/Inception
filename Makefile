@@ -21,11 +21,10 @@ list:
 	@docker network ls
 	@echo "\n"
 
-run:
-	docker run -d -p 3306:3306 --name mariadb mariadb
-
 execDB:
 	docker exec -it mariadb mysql -u root
+execNG:
+	docker run -it -p 80:80 inception-nginx /bin/sh
 
 rmv:
 	docker rm -vf $$(docker ps -aq)

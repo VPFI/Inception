@@ -1,7 +1,6 @@
 services:
   mariadb:
     container_name: mariadb
-    # image: mariadb
     build: ./mariadb
     env_file:
       - .env
@@ -11,7 +10,6 @@ services:
   
   nginx:
     container_name: nginx
-    # image: nginx
     build: ./nginx
     env_file:
       - .env
