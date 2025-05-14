@@ -1,18 +1,17 @@
 services:
   mariadb:
     container_name: mariadb
-    image: mariadb
+    # image: mariadb
     build: ./mariadb
     env_file:
       - .env
     volumes:
       - mariadb_data:/var/lib/mysql
-    
     restart: always
   
   nginx:
     container_name: nginx
-    image: nginx
+    # image: nginx
     build: ./nginx
     env_file:
       - .env
@@ -20,7 +19,6 @@ services:
       - wordpress_data:/var/www/html
     ports:
       - "443:443"
-
     restart: always
 
 volumes:

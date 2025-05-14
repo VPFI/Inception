@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:11.9
 
 RUN apt update
 RUN apt install -y nginx openssl
