@@ -23,13 +23,19 @@ list:
 
 execDB:
 	docker exec -it mariadb mysql -u root
-execNG:
-	docker run -it -p 80:80 inception-nginx /bin/sh
+
+exec:
+	@while [ -z "$$TARGET" ]; do \
+		read -r -p "Target to exec (mariadb/wordpress/nginx): " TARGET; \
+	done; \
+	docker exec -it $$TARGET /bin/bash;
 
 rmv:
 	docker rm -vf $$(docker ps -aq)
 rmi:
 	docker rmi -f $$(docker images -aq)
+
+reload: clean up
 
 clean:
 	docker-compose down -v --rmi all

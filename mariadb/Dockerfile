@@ -4,6 +4,8 @@ RUN apt update
 RUN apt install -y mariadb-server
 
 COPY mdb.cnf /etc/mysql/mariadb.conf.d/
+RUN chmod 644 /etc/mysql/mariadb.conf.d/mdb.cnf
+
 COPY --chmod=777 ./mdb_init.sh .
 
 RUN mkdir -p /var/run/mysqld && \
