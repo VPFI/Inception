@@ -8,6 +8,10 @@ services:
       - back
     env_file:
       - .env
+    secrets:
+      - db_user
+      - db_pass
+      - root_pass
     restart: always
 
   wordpress:
@@ -22,6 +26,12 @@ services:
       - back
     env_file:
       - .env
+    secrets:
+      - db_user
+      - db_pass
+      - wp_user_pass
+      - wp_admin_user
+      - wp_admin_pass
     restart: always
   
   nginx:
@@ -59,3 +69,17 @@ networks:
     driver: bridge
   back:
     driver: bridge
+
+secrets:
+  db_user:
+    file: ../secrets/db_user
+  db_pass:
+    file: ../secrets/db_pass
+  root_pass:
+    file: ../secrets/root_pass
+  wp_user_pass:
+    file: ../secrets/wp_user_pass
+  wp_admin_user:
+    file: ../secrets/wp_admin_user
+  wp_admin_pass:
+    file: ../secrets/wp_admin_pass

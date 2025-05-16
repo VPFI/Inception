@@ -1,5 +1,9 @@
 #!/bin/bash
 
+DB_USER=$(cat $SECRET_PATH/db_user)
+DB_USER_PASS=$(cat $SECRET_PATH/db_pass)
+DB_ROOT_PASS=$(cat $SECRET_PATH/root_pass)
+
 mysqld_safe --skip-networking &
 
 until mysqladmin ping --silent --connect-timeout=2; do

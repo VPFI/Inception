@@ -1,4 +1,4 @@
-SRC = ./src/
+SRC = ./srcs/
 DOCKER_YAML = docker-compose.yml
 
 up:
@@ -48,4 +48,4 @@ clean:
 update:
 	rm -rf /home/$(USER)/Desktop/inception/*
 	cp -R /media/sf_Cursus/Inception/* /home/$(USER)/Desktop/inception/
-	cp /media/sf_Cursus/Inception/src/.env /home/$(USER)/Desktop/inception/
+	cp /media/sf_Cursus/Inception/$(SRC).env /home/$(USER)/Desktop/inception/
