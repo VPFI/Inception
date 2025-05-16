@@ -8,9 +8,9 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 RUN mkdir -p /run/php && chmod 777 /run/php
 
-COPY ./wp_pool.conf /etc/php/7.4/fpm/pool.d/
+COPY ./conf/wp_pool.conf /etc/php/7.4/fpm/pool.d/
 
-COPY --chmod=777 ./init_wp.sh /root/init_wp.sh
+COPY --chmod=777 ./tools/init_wp.sh /root/init_wp.sh
 
 WORKDIR /var/www/html
 

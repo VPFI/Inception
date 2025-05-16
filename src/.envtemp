@@ -1,0 +1,17 @@
+DB_NAME=wp_db
+DB_ROOT=root
+DB_ROOT_PASS=42inception24
+DB_USER=vperez
+DB_PASS=42inception24
+
+DB_HOST=mariadb
+WP_DOMAIN=vperez.42.fr
+WP_TITLE=vperez_WP
+
+WP_USER=test
+WP_USER_PASS=42inception24
+WP_USER_EMAIL=throwaway@gmail.com
+
+WP_ADMIN_USER=vperez
+WP_ADMIN_PASS=42inception24
+WP_ADMIN_EMAIL=throwaway@gmail.com

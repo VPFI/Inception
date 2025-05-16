@@ -1,7 +1,7 @@
 services:
   mariadb:
     container_name: mariadb
-    build: ./mariadb
+    build: ./requirements/mariadb
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -12,7 +12,7 @@ services:
 
   wordpress:
     container_name: wordpress
-    build: ./wordpress
+    build: ./requirements/wordpress
     depends_on:
       - mariadb
     volumes:
@@ -26,7 +26,7 @@ services:
   
   nginx:
     container_name: nginx
-    build: ./nginx
+    build: ./requirements/nginx
     depends_on:
       - wordpress
     volumes:

@@ -1,9 +1,12 @@
+SRC = ./src/
+DOCKER_YAML = docker-compose.yml
+
 up:
 	mkdir -p /home/$(USER)/data/mariadb/
 	mkdir -p /home/$(USER)/data/wordpress/
-	docker-compose up --detach --build
+	docker-compose -f $(SRC)$(DOCKER_YAML) up --detach --build
 down:
-	docker-compose down -v
+	docker-compose -f $(SRC)$(DOCKER_YAML) down -v
 
 start:
 	docker start $$(docker ps -aq)
@@ -38,11 +41,11 @@ rmi:
 reload: clean up
 
 clean:
-	docker-compose down -v --rmi all
+	docker-compose -f $(SRC)$(DOCKER_YAML) down -v --rmi all
 	rm -rf /home/$(USER)/data/mariadb/
 	rm -rf /home/$(USER)/data/wordpress/
 
 update:
 	rm -rf /home/$(USER)/Desktop/inception/*
 	cp -R /media/sf_Cursus/Inception/* /home/$(USER)/Desktop/inception/
-	cp /media/sf_Cursus/Inception/.env /home/$(USER)/Desktop/inception/
+	cp /media/sf_Cursus/Inception/src/.env /home/$(USER)/Desktop/inception/

@@ -3,10 +3,10 @@ FROM debian:11.9
 RUN apt update
 RUN apt install -y mariadb-server
 
-COPY mdb.cnf /etc/mysql/mariadb.conf.d/
+COPY ./conf/mdb.cnf /etc/mysql/mariadb.conf.d/
 RUN chmod 644 /etc/mysql/mariadb.conf.d/mdb.cnf
 
-COPY --chmod=777 ./mdb_init.sh .
+COPY --chmod=777 ./tools/mdb_init.sh /root/
 
 RUN mkdir -p /var/run/mysqld && \
 	chown -R mysql:mysql /var/run/mysqld && \
@@ -14,6 +14,6 @@ RUN mkdir -p /var/run/mysqld && \
 
 EXPOSE 3306
 
-ENTRYPOINT ["./mdb_init.sh"]
+ENTRYPOINT ["/root/mdb_init.sh"]
 CMD ["mysqld"]
 
