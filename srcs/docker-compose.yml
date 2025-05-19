@@ -36,7 +36,9 @@ services:
   
   nginx:
     container_name: nginx
-    build: ./requirements/nginx
+    build:
+      context: ./requirements/
+      dockerfile: ./requirements/nginx/Dockerfile
     depends_on:
       - wordpress
     volumes:
